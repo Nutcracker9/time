@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Angle between arrows</title>
+	</head>
+ 	<body><body>	
+		Введите время в формате ЧЧ:ММ (24-часовой формат)<br><br>
+		<input type="text" id="txt"><br><br>
+		<input type="button" id="btn" value="Определить угол между стрелками">
+	</body>
+	<script type="text/javascript">
+		document.getElementById("btn").onclick = func;
+		function func(){
+			var a = document.getElementById("txt").value.split(':');
+				
+			var mm = a[1] * 6; //угол минутной стрелки
+			var hh = (a[0] % 12) * 30 + a[1] / 2; //угол часовой стрелки
+			
+			var ang = (mm > hh) ? (mm - hh) : (hh - mm); //угол между стрелками
+			
+			ang = (ang > 180) ? (360 - ang) : ang; //угол между стрелками
+			
+			alert("Наименьший угол между стрелками = " + ang + "°");
+		}
+	</script>
+</html>
